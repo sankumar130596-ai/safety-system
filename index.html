@@ -3550,6 +3550,10 @@ function getFilteredSupervisors() { var plant = state.selectedPlant; if (!plant)
     document.addEventListener('click', function(e) { if (state.notifDropdownOpen && !e.target.closest('.notif-bell-wrap')) { state.notifDropdownOpen = false; render(); } });
 
     _baseRender();
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(function(){});
+    }
     </script>
 </body>
 </html>
